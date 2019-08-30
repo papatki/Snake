@@ -7,35 +7,49 @@ public class GameScreen {
 
     private char[][] gameScreen;
 
-    public GameScreen(int height, int width) {
+    public GameScreen(int width, int height) {
         this.height = height;
         this.width = width;
         this.gameScreen = new char[this.height][this.width];
     }
 
     public int getHeight() {
-        return height;
+        return this.height;
     }
 
     public int getWidth() {
-        return width;
+        return this.width;
+    }
+
+
+    public void initScreen() {
+        for (int i = 0; i < this.height; i++) {
+            for (int j = 0; j < this.width; j++) {
+                this.gameScreen[i][j] = ' ';
+            }
+        }
     }
 
     public void printScreen() {
         for (int i = 0; i < this.height; i++) {
             for (int j = 0; j < this.width; j++) {
-                char screen = this.gameScreen[i][j] = '.';
-                System.out.println(screen);
+                System.out.print(this.gameScreen[i][j]);
             }
+            System.out.println();
         }
     }
 
-    public char getObjectOnLocation(int x, int y, GameObject gameObject) {
-        return gameScreen[x][y];
+    public void clearScreen(int x, int y) {
+        this.gameScreen[y][x] = ' ';
+
+    }
+
+    public char getObjectOnLocation(int x, int y) {
+        return this.gameScreen[y][x];
     }
 
     public void setObjectOnLocation(int x, int y, GameObject gameObject) {
-        gameScreen[x][y] = gameObject.getSign();
+        this.gameScreen[y][x] = gameObject.getSign();
     }
 
 

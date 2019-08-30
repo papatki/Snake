@@ -3,7 +3,7 @@ package com.papatki;
 public class GameObject {
 
     private int x;
-    private  int y;
+    private int y;
     private char sign;
 
     public int getX() {
